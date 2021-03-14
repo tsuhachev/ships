@@ -54,7 +54,8 @@ public class Main {
             .parallel()
             .filter(hitAttempt::equals)
             .findAny()
-            .ifPresent(p -> attemptStore.put(p, playerShips.contains(p) ? MATCH : MISS));
+            .ifPresentOrElse(p -> attemptStore.put(p, playerShips.contains(p) ? MATCH : MISS),
+                () -> System.out.println("Hit attempt is out of playground"));
 
         printMatrix(attemptStore);
     }
