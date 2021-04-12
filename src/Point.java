@@ -10,6 +10,7 @@ public class Point {
     }
 
     public int getX() {
+        // this is master later commit
         return x;
     }
 
